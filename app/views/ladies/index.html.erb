@@ -9,6 +9,7 @@
       <th scope="col">Abs</th>
       <th scope="col">Butt</th>
       <th scope="col">Legs</th>
+      <th scope="col">Total</th>
       <th scope="col">Show</th>
       <th scope="col">Edit</th>
        <th scope="col">Delete</th>
@@ -24,6 +25,7 @@
       <td><%= lady.abs %></td>
       <td><%= lady.butt %></td>
       <td><%= lady.legs %></td>
+       <td><%= lady.face + lady.chest + lady.abs + lady.butt + lady.legs %></td>
       <td><%= link_to 'Show', lady_path(lady) %></td>
       <td><%= link_to 'Edit', edit_lady_path(lady)%></td>
       <td><%= link_to 'Delete', lady,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
