@@ -16,9 +16,11 @@ class LadiesController < ApplicationController
     @lady = Lady.new(lady_params)
     
     if @lady.save
-      redirect_to action: :index, notice: 'Lady was added successfully!'
+      flash[:success] = 'Lady was added successfully!'
+      redirect_to action: :index
     else
-      render :new, notice:'Try again boss'
+      flash.now[:error] = 'Try again boss'
+      render :new
     end
   end
 
@@ -27,15 +29,18 @@ class LadiesController < ApplicationController
   
   def update
     if @lady.update(lady_params)
-      redirect_to action: :index, notice: 'Lady was updated successfully!'
+      flash[:success] = 'Lady was updated successfully!'
+      redirect_to action: :index
     else
-      render :edit, notice: 'Try again boss'
+      flash.now[:success] = 'Lady was NOT updated successfully!'
+      render :edit
     end
   end
   
   def destroy
     @lady.destroy
-    redirect_to action: :index,  notice: 'Item was successfully destroyed.'
+    flash[:success] = 'Item was successfully destroyed.'
+    redirect_to action: :index
   end
   
   private
