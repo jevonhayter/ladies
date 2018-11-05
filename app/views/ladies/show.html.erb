@@ -1,2 +1,19 @@
-<h1>Ladies#show</h1>
-<p>Find me in app/views/ladies/show.html.erb</p>
+<div class="row">
+    <div class='col-md-6 offset-md-3 spacer'>
+      <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">Lucky Lady</h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= @lady.name %></h6>
+            <p class="card-text">Face: <%= @lady.face %></p>
+            <p class="card-text">Chest: <%= @lady.chest %></p>
+            <p class="card-text">Abs: <%= @lady.abs %></p>
+            <p class="card-text">Butt: <%= @lady.butt %></p>
+            <p class="card-text">Legs: <%= @lady.legs %></p>
+            <%= link_to 'Lady List', ladies_path %>
+          </div>
+        </div>  
+    </div>
+</div>
+
+<%= link_to "New Lady", new_lady_path %>
+

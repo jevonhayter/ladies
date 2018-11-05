@@ -1,0 +1,32 @@
+<div class="row align-items-center">
+    <div class="col-md-6 offset-md-3">
+        <%= form_for @lady do |f| %>
+        <div class="form-group">
+          <%= f.label 'Name' %>
+          <%= f.text_field :name, class: 'form-control' %>
+        </div>
+        <h3>Enter Score from 1 to 5</h3>
+        <div class="form-group">
+          <%= f.label 'Face' %>
+          <%= f.text_field :face, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'Chest' %>
+          <%= f.text_field :chest, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'Abs' %>
+          <%= f.text_field :abs, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'Butt' %>
+          <%= f.text_field :butt, class: 'form-control' %>
+        </div>
+        <div class="form-group">
+          <%= f.label 'Legs' %>
+          <%= f.text_field :legs, class: 'form-control' %>
+        </div>
+          <%= f.submit "New Lady" %>
+        <% end %>
+    </div>
+</div>

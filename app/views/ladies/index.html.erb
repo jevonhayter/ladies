@@ -1,2 +1,38 @@
-<h1>Ladies#index</h1>
-<p>Find me in app/views/ladies/index.html.erb</p>
+<h1 class="spacer">Lady List</h1>
+<table class="table table-striped table-dark spacer">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Face</th>
+      <th scope="col">Chest</th>
+      <th scope="col">Abs</th>
+      <th scope="col">Butt</th>
+      <th scope="col">Legs</th>
+      <th scope="col">Show</th>
+      <th scope="col">Edit</th>
+       <th scope="col">Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+      <% @ladies.each do | lady |%>
+    <tr>
+      <th scope="row"><%= lady.id %></th>
+      <td><%= lady.name %></td>
+      <td><%= lady.face %></td>
+      <td><%= lady.chest %></td>
+      <td><%= lady.abs %></td>
+      <td><%= lady.butt %></td>
+      <td><%= lady.legs %></td>
+      <td><%= link_to 'Show', lady_path(lady) %></td>
+      <td><%= link_to 'Edit', edit_lady_path(lady)%></td>
+      <td><%= link_to 'Delete', lady,  method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+
+<%= link_to "New Lady", new_lady_path %>
+
