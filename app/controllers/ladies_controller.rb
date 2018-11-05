@@ -3,7 +3,7 @@ class LadiesController < ApplicationController
  before_action :authenticate_user!
   
   def index
-    @ladies = Lady.all.where(user_id: get_user)
+    @ladies = Lady.all.where(user_id: current_user_id)
   end
 
   def show
@@ -51,8 +51,8 @@ class LadiesController < ApplicationController
       @lady = Lady.find(params[:id])
     end
     
-    def get_user
-      @user = current_user.id
+    def current_user_id
+      @curent_user_id = current_user.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
