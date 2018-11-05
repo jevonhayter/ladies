@@ -14,6 +14,9 @@ gem 'jbuilder'
 gem 'bootsnap'
 gem 'pry'
 gem 'activestorage'
+gem 'devise'
+gem 'cancancan'
+gem 'rolify'
 
 group :development, :test do
   gem 'sqlite3'

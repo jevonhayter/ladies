@@ -1,8 +1,9 @@
 class LadiesController < ApplicationController
  before_action :set_list, only: [:show, :edit, :update, :destroy]
+ before_action :authenticate_user!
   
   def index
-    @ladies = Lady.all
+    @ladies = Lady.all.where(user_id: get_user)
   end
 
   def show
@@ -14,6 +15,7 @@ class LadiesController < ApplicationController
   
   def create
     @lady = Lady.new(lady_params)
+    @lady.user = current_user
     
     if @lady.save
       flash[:success] = 'Lady was added successfully!'
@@ -32,7 +34,7 @@ class LadiesController < ApplicationController
       flash[:success] = 'Lady was updated successfully!'
       redirect_to action: :index
     else
-      flash.now[:success] = 'Lady was NOT updated successfully!'
+      flash.now[:error] = 'Lady was NOT updated successfully!'
       render :edit
     end
   end
@@ -47,6 +49,10 @@ class LadiesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_list
       @lady = Lady.find(params[:id])
+    end
+    
+    def get_user
+      @user = current_user.id
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
